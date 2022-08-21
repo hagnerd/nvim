@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/matthagner/code/playground/effin-tables/src/hooks'
+let g:netrw_dirhist_6='/Users/matthagner/code/playground/effin-tables/src'
+let g:netrw_dirhist_5='/Users/matthagner/code/playground/effin-tables/src/pages'
+let g:netrw_dirhist_4='/Users/matthagner/code/playground/effin-tables/src'
+let g:netrw_dirhist_3='/Users/matthagner/code/playground/effin-tables/src/pages'
+let g:netrw_dirhist_2='/Users/matthagner/code/playground/effin-tables/src'
+let g:netrw_dirhist_1='/Users/matthagner/code/playground/effin-tables/src/components'
+let g:netrw_dirhist_0='/Users/matthagner/code/playground/effin-tables/src'
+let g:netrw_dirhist_9='/Users/matthagner/code/playground/effin-tables'
+let g:netrw_dirhist_8='/Users/matthagner/code/playground/effin-tables/src'
