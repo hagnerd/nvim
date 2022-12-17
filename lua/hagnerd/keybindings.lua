@@ -34,25 +34,5 @@ vim.keymap.set("n", "<leader>j", ":m .+1<CR>==")
 vim.keymap.set("n", "<leader>k", ":m .-2<CR>==")
 -- }
 
--- vim-test {
-vim.keymap.set("n", "<leader>tn", "<CMD>TestNearest<CR>")
-vim.keymap.set("n", "<leader>tf", "<CMD>TestFile<CR>")
-vim.keymap.set("n", "<leader>ts", "<CMD>TestSuite<CR>")
-vim.keymap.set("n", "<leader>tl", "<CMD>TestLast<CR>")
-vim.keymap.set("n", "<leader>tv", "<CMD>TestVisit<CR>")
--- }
-
--- { Telescope
-vim.keymap.set("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>fg", "<CMD>Telescope live_grep<CR>")
-vim.keymap.set("n", "<leader>fb", "<CMD>Telescope buffers<CR>")
-vim.keymap.set("n", "<leader>fh", "<CMD>Telescope help_tags<CR>")
--- }
-
--- Harpoon
--- vim.keymap.set("n", "<leader>ha", require("harpoon.mark").add_file, opts)
--- vim.keymap.set("n", "<leader>hh", require("harpoon.ui").toggle_quick_menu, opts)
--- vim.keymap.set("n", "<leader>hr", require("harpoon.ui").rm_file, opts)
-
 -- -- terminal map
 vim.keymap.set("t", "<C-n><C-n>", "<C-\\><C-n>")

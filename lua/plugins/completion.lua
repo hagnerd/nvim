@@ -17,10 +17,6 @@ for _, handle in ipairs(coworker_handles) do
   table.insert(handles, handle)
 end
 
-if not cmp then
-  return
-end
-
 -- I got most of this setup from this YouTube Video https://www.youtube.com/watch?v=_DnmphIwnjo&list=WL&index=54&t=21s
 cmp.setup({
   experimental = {
@@ -35,6 +31,7 @@ cmp.setup({
         nvim_lsp = "[LSP]",
         nvim_lua = "[api]",
         path = "[path]",
+        luasnip = "[snip]"
       }
     }
   },

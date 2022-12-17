@@ -1,10 +1,10 @@
 local lspconfig = require("lspconfig")
 local lsp_status = require("lsp-status")
 
-local base_capabilities = vim.lsp.protocol.make_client_capabilities()
-local capabilities = require('cmp_nvim_lsp').update_capabilities(base_capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local function setup_keybindings()
+local function setup_keybindings(_ --[[client]] , bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
@@ -17,7 +17,6 @@ local function setup_keybindings()
   vim.keymap.set("n", "<leader>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
     { buffer = 0 })
 
-  vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, { buffer = 0 })
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = 0 })
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
 
@@ -27,13 +26,13 @@ local function setup_keybindings()
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
   vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { buffer = 0 })
 
-  vim.keymap.set("n", "<localleader>ff", vim.lsp.buf.formatting, { buffer = 0 })
+  vim.keymap.set("n", "<localleader>ff", function() vim.lsp.buf.format({ async = true }) end, { buffer = 0 })
 end
 
 local function on_attach(client, bufnr)
-  require("aerial").on_attach(client, bufnr)
   lsp_status.on_attach(client)
-  setup_keybindings()
+  require("lsp_signature").on_attach({}, bufnr)
+  setup_keybindings(client, bufnr)
 end
 
 local default_setup = {
@@ -58,9 +57,6 @@ local function setup_servers(servers)
 end
 
 local Helpers = {
-  make_opts = make_opts,
-  on_attach = on_attach,
-  capabilities = capabilities,
   setup_servers = setup_servers,
 }
 

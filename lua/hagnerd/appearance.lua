@@ -1,1 +1,1 @@
-require("hagnerd.colorschemes.ayu").setup()
+require("hagnerd.colorschemes")

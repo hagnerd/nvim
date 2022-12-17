@@ -18,6 +18,11 @@ local servers = {
   "yamlls",
 }
 
+require("mason").setup()
+require("mason-lspconfig").setup({
+  automatic_installation = true,
+})
+
 lsp_helpers.setup_servers(servers)
 
 local null_ls = require("null-ls")
@@ -45,5 +50,7 @@ null_ls.setup({
       end
     }),
     null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.diagnostics.rubocop,
+    null_ls.builtins.formatting.rubocop,
   }
 })

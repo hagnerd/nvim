@@ -24,6 +24,7 @@ treesitter.setup({
     "tsx",
     "zig",
   },
+  highlight = { enable = true },
   auto_install = true,
   playground = {
     enable = true,

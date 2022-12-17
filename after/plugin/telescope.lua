@@ -25,7 +25,19 @@ telescope.setup({
   }
 })
 
-telescope.load_extension("fzf")
+-- telescope.load_extension("fzf")
 telescope.load_extension("aerial")
 telescope.load_extension('projects')
 telescope.load_extension("file_browser")
+telescope.load_extension("env")
+telescope.load_extension("packer")
+telescope.load_extension("luasnip")
+telescope.load_extension("bookmarks")
+telescope.load_extension("ui-select")
+telescope.load_extension("repo")
+telescope.load_extension("lsp_handlers")
+
+vim.keymap.set("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>fg", "<CMD>Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>fb", "<CMD>Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>fh", "<CMD>Telescope help_tags<CR>")

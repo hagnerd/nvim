@@ -1,9 +1,15 @@
-local packer = require("packer");
+local packer = require("packer")
 
 packer.startup({function(use)
   use "wbthomason/packer.nvim"
+  use "nvim-lua/plenary.nvim"
+
+  -- LSP {
   use "neovim/nvim-lspconfig"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
+  -- }
 
   -- Completion {
   use "hrsh7th/nvim-cmp"
@@ -17,6 +23,7 @@ packer.startup({function(use)
   use "hrsh7th/cmp-nvim-lsp-document-symbol"
   -- }
 
+  -- Treesitter {
   use {
     "nvim-treesitter/nvim-treesitter",
     run = function()
@@ -24,6 +31,7 @@ packer.startup({function(use)
     end
   }
   use "nvim-treesitter/playground"
+  -- }
 
   use "tpope/vim-repeat"
   use "tpope/vim-fugitive"
@@ -32,6 +40,8 @@ packer.startup({function(use)
   use "jiangmiao/auto-pairs" -- alternative use 'windwp/nvim-autopairs'
 
   use "christoomey/vim-tmux-runner"
+  -- This includes a keybinding that overrides <C-\> which is a bummer because this is used for
+  -- terminal keymappings so I need to figure that out.
   use "christoomey/vim-tmux-navigator"
 
   use {
@@ -83,36 +93,39 @@ packer.startup({function(use)
   use "euclidianAce/BetterLua.vim"
   -- }
 
-  -- Colors and hex and stuff
-  use "tjdevries/colorbuddy.nvim" -- not using
-  use "chrisbra/Colorizer" -- not using
+  -- Appearance {
+  use {"hoob3rt/lualine.nvim"}
+  use {"kyazdani42/nvim-web-devicons"}
+    -- Colors {
+    use "tjdevries/colorbuddy.nvim" -- not using
+    use "chrisbra/Colorizer" -- not using
 
-  -- color themes
-  use "drewtempelmeyer/palenight.vim"
-  use "haishanh/night-owl.vim"
-  use "Mofiqul/dracula.nvim"
-  -- use "ayu-theme/ayu-vim"
-  use "Shatur/neovim-ayu"
-  use "bbenzikry/snazzybuddy.nvim"
-  use "marko-cerovac/material.nvim"
-  use "folke/tokyonight.nvim"
+    -- color themes
+    use "drewtempelmeyer/palenight.vim"
+    use "haishanh/night-owl.vim"
+    use "Mofiqul/dracula.nvim"
+    -- use "ayu-theme/ayu-vim"
+    use "Shatur/neovim-ayu"
+    use "bbenzikry/snazzybuddy.nvim"
+    use "marko-cerovac/material.nvim"
+    use "folke/tokyonight.nvim"
+    -- }
 
-  -- General utilities
-  use "nvim-lua/plenary.nvim"
+  -- }
+
+  -- Telescope and related extensions {
   use {
     "nvim-telescope/telescope.nvim",
     requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},
   }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use "nvim-telescope/telescope-file-browser.nvim"
+  use "nvim-telescope/telescope-ui-select.nvim"
+  -- }
+
   use "tpope/vim-dispatch"
   use "radenling/vim-dispatch-neovim"
 
-  use {"kyazdani42/nvim-web-devicons"}
-
-  use {"hoob3rt/lualine.nvim"}
-
-  use "williamboman/nvim-lsp-installer"
   use "ThePrimeagen/git-worktree.nvim"
   use "ThePrimeagen/harpoon"
 
@@ -122,11 +135,8 @@ packer.startup({function(use)
       vim.g["user_emmet_leader_key"] = "<C-E>"
     end
   }
-
-  -- use "mhartington/formatter.nvim"
-
-  -- use 'mfussenegger/nvim-lint'
   use "numToStr/Comment.nvim"
+  use "tpope/vim-eunuch"
 
   -- Ziglang {
   use "ziglang/zig.vim"
@@ -142,7 +152,6 @@ packer.startup({function(use)
 
   use {"folke/twilight.nvim", cmd = {"Twilight", "TwilightDisable", "TwilightEnable"}}
 
-  use "tpope/vim-eunuch"
 
   use "jparise/vim-graphql"
 
@@ -150,9 +159,7 @@ packer.startup({function(use)
   use "simrat39/rust-tools.nvim"
   -- }
 
-  use "simrat39/symbols-outline.nvim"
-
-  use "fladson/vim-kitty"
+  use "fladson/vim-kitty" -- Syntax for Kitty terminal config file
 
   use {
     "goolord/alpha-nvim",
@@ -161,15 +168,39 @@ packer.startup({function(use)
     end
   }
 
-  -- use "kyazdani42/nvim-tree.lua"
-
   use "stevearc/aerial.nvim"
 
   use "nvim-lua/lsp-status.nvim"
 
-  use "ahmedkhalf/project.nvim"
   use "git@github.com:hagnerd/nvim-settings.git"
   use "git@github.com:hagnerd/github-handles-coworkers"
+  use "git@github.com:hagnerd/nvim-cmp-co-authored-by"
+  use "git@github.com:hagnerd/co-authored-by-luasnip"
+
+  -- Trying out these plugins {
+  use "simrat39/symbols-outline.nvim" -- probably no
+  use "ahmedkhalf/project.nvim" -- Do I really want to use this?
+  use {"arjunmahishi/run-code.nvim"} -- leaning no
+  use {"LinArcX/telescope-env.nvim"}
+  use {"benfowler/telescope-luasnip.nvim"} -- leaning no
+  use {"dhruvmanila/telescope-bookmarks.nvim"} -- leaning no
+  use {"nvim-telescope/telescope-packer.nvim"}
+  use {"gbrlsnchs/telescope-lsp-handlers.nvim"} -- leaning no
+  use {"ray-x/lsp_signature.nvim"}
+  use {"cljoly/telescope-repo.nvim"}
+
+  -- GITHUB COPILOT
+  use "github/copilot.vim"
+  -- }
+
+  -- nvim-tree {
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+  }
+  -- }
 
   -- this looks super interesting
   -- use "glacambre/firenvim"
@@ -180,12 +211,14 @@ packer.startup({function(use)
   -- OR
   -- use "goolord/alpha-nvim"
   --
-  -- use "tanvirtin/vgit.nvim"
   -- use "AckslD/nvim-neoclip.lua"
   -- use "romgrk/barbar.nvim"
-  -- use "glepnir/dashboard-nvim"
-  -- use "ahmedkhalf/project.nvim"
 end,
 config = {
   max_jobs = 10,
+  display = {
+    open_fn = function()
+      return require("packer.util").float({})
+    end
+  }
 }})

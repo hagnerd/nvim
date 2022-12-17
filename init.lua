@@ -1,12 +1,12 @@
 require("nvim-settings")
 require("hagnerd")
-
-require("plugins/nvim_lsp_installer")
-require("plugins/nvimTreesitter")
-require("plugins/lsp")
-require("plugins/completion")
-require("plugins/harpoon")
+require("plugins")
 
 require("issues")
 
-require("alpha").setup(require("alpha.themes.theta").config)
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- empty setup using defaults
+require("nvim-tree").setup()
