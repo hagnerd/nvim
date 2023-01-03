@@ -1,6 +1,6 @@
 local function setup()
-  local colorscheme = 'tokyonight'
-
+  local colorscheme = 'gruvbox'
+  vim.o.background = "dark"
   vim.cmd.colorscheme(colorscheme)
 
   require("hagnerd/colorschemes/lualine").setup(colorscheme)

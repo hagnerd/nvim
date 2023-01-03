@@ -528,6 +528,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
 -- Config for: vim-test
 time([[Config for vim-test]], true)
 try_loadstring("\27LJ\2\n6\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\vneovim\18test#strategy\6g\bvim\0", "config", "vim-test")
@@ -536,13 +540,16 @@ time([[Config for vim-test]], false)
 time([[Config for emmet-vim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\n<C-E>\26user_emmet_leader_key\6g\bvim\0", "config", "emmet-vim")
 time([[Config for emmet-vim]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'TwilightEnable', function(cmdargs)
+          require('packer.load')({'twilight.nvim'}, { cmd = 'TwilightEnable', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'twilight.nvim'}, { cmd = 'TwilightEnable' }, _G.packer_plugins)
+          return vim.fn.getcompletion('TwilightEnable ', 'cmdline')
+      end})
 pcall(vim.api.nvim_create_user_command, 'Twilight', function(cmdargs)
           require('packer.load')({'twilight.nvim'}, { cmd = 'Twilight', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -556,13 +563,6 @@ pcall(vim.api.nvim_create_user_command, 'TwilightDisable', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'twilight.nvim'}, { cmd = 'TwilightDisable' }, _G.packer_plugins)
           return vim.fn.getcompletion('TwilightDisable ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'TwilightEnable', function(cmdargs)
-          require('packer.load')({'twilight.nvim'}, { cmd = 'TwilightEnable', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'twilight.nvim'}, { cmd = 'TwilightEnable' }, _G.packer_plugins)
-          return vim.fn.getcompletion('TwilightEnable ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 

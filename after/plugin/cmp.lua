@@ -3,21 +3,8 @@ lspkind.init()
 
 local cmp = require("cmp")
 
-vim.opt.completeopt = {"menu", "menuone", "noselect"}
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
-local handles = {}
-local github_handles = require("plugins/github_handles")
-local coworker_handles = require("github-handles-coworkers")
-
-for _, handle in ipairs(github_handles) do
-  table.insert(handles, handle)
-end
-
-for _, handle in ipairs(coworker_handles) do
-  table.insert(handles, handle)
-end
-
--- I got most of this setup from this YouTube Video https://www.youtube.com/watch?v=_DnmphIwnjo&list=WL&index=54&t=21s
 cmp.setup({
   experimental = {
     native_menu = false, -- Uses a new window
@@ -45,7 +32,6 @@ cmp.setup({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     }),
-    -- ["<CR>"] = cmp.mapping.complete(),
   },
   snippet = {
     expand = function(args)
@@ -53,15 +39,10 @@ cmp.setup({
     end
   },
   sources = cmp.config.sources({
-    { name = "nvim_lua" }, -- only runs in lua files anyways
+    { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "path" },
-    { name = "co-authored-by",
-      option = {
-        handles = handles
-      }
-  },
-    { name = "buffer", keyword_length = 5}
+    { name = "buffer", keyword_length = 5 }
   }),
 })
