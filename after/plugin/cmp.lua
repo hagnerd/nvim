@@ -5,6 +5,18 @@ local cmp = require("cmp")
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+local function get_co_author_handles()
+  local ok, handles = pcall(require, 'co-author-handles')
+
+  if ok then
+    return handles or {}
+  else
+    return {}
+  end
+end
+
+local co_author_handles = get_co_author_handles()
+
 cmp.setup({
   experimental = {
     native_menu = false, -- Uses a new window
@@ -28,6 +40,7 @@ cmp.setup({
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ["<C-y>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
@@ -43,6 +56,7 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "path" },
-    { name = "buffer", keyword_length = 5 }
+    { name = "buffer", keyword_length = 5 },
+    { name = "co-authored-by", option = { handles = co_author_handles } }
   }),
 })

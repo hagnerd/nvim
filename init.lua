@@ -8,6 +8,7 @@ require("config.keymaps")
 
 require("lazy").setup({
   "nvim-lua/plenary.nvim",
+  { dir = vim.fn.stdpath('data') .. '/co-author-handles', lazy = false },
   { dir = vim.fn.stdpath("data") .. '/site/pack/nvim-settings/start/nvim-settings', lazy = false },
   { "neovim/nvim-lspconfig" },
   { "williamboman/mason.nvim" },
@@ -66,12 +67,12 @@ require("lazy").setup({
   "nvim-telescope/telescope-ui-select.nvim",
   "nvim-telescope/telescope-file-browser.nvim",
   "ThePrimeagen/harpoon",
-  {
+  --[[ {
     "mattn/emmet-vim",
     config = function()
       vim.g["user_emmet_leader_key"] = "<C-E>"
     end
-  },
+  }, ]]
   "numToStr/Comment.nvim",
   "tpope/vim-eunuch",
   "lewis6991/gitsigns.nvim",
