@@ -1,17 +1,16 @@
+local lualine = require("hagnerd/colorschemes/lualine")
+
 local function setup()
   vim.g.material_style = "deep ocean"
+  local colorscheme = "ayu"
 
   require("ayu").setup({
     mirage = true,
   })
 
-  vim.cmd[[colorscheme ayu]]
+  vim.cmd.colorscheme(colorscheme)
 
-  require("lualine").setup({
-    options = {
-      theme = "ayu"
-    }
-  })
+  lualine.setup(colorscheme)
 end
 
 local M = { setup = setup }

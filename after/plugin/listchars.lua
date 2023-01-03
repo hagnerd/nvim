@@ -1,0 +1,1 @@
+require("hagnerd.listchars").setup{}

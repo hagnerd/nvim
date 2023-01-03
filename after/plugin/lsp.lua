@@ -54,3 +54,10 @@ null_ls.setup({
     null_ls.builtins.formatting.rubocop,
   }
 })
+
+-- I can't quite remember what this was for, but this fixed some problem I was having 😅
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false
+    }
+)
