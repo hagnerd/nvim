@@ -6,13 +6,10 @@ local cmp = require("cmp")
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 local function get_co_author_handles()
-  local ok, handles = pcall(require, 'co-author-handles')
+  local filename = vim.fn.stdpath('data') .. '/co-author-handles.json'
+  local file = table.concat(vim.fn.readfile(filename), '')
 
-  if ok then
-    return handles or {}
-  else
-    return {}
-  end
+  return vim.json.decode(file)
 end
 
 local co_author_handles = get_co_author_handles()

@@ -8,7 +8,6 @@ require("config.keymaps")
 
 require("lazy").setup({
   "nvim-lua/plenary.nvim",
-  { dir = vim.fn.stdpath('data') .. '/co-author-handles', lazy = false },
   { dir = vim.fn.stdpath("data") .. '/site/pack/nvim-settings/start/nvim-settings', lazy = false },
   { "neovim/nvim-lspconfig" },
   { "williamboman/mason.nvim" },
@@ -19,6 +18,7 @@ require("lazy").setup({
   "hrsh7th/cmp-buffer", -- local buffer completion
   "hrsh7th/cmp-path", -- Path completions
   "hrsh7th/cmp-nvim-lua", -- Lua completion engine
+  "milisims/nvim-luaref",
   "onsails/lspkind-nvim",
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
@@ -67,22 +67,14 @@ require("lazy").setup({
   "nvim-telescope/telescope-ui-select.nvim",
   "nvim-telescope/telescope-file-browser.nvim",
   "ThePrimeagen/harpoon",
-  --[[ {
-    "mattn/emmet-vim",
-    config = function()
-      vim.g["user_emmet_leader_key"] = "<C-E>"
-    end
-  }, ]]
   "numToStr/Comment.nvim",
   "tpope/vim-eunuch",
   "lewis6991/gitsigns.nvim",
   "stevearc/aerial.nvim",
   "nvim-lua/lsp-status.nvim",
-
-  { url = "git@github.com:hagnerd/github-handles-coworkers" },
-  { url = "git@github.com:hagnerd/nvim-cmp-co-authored-by" },
-  { url = "git@github.com:hagnerd/co-authored-by-luasnip" },
-  { "ray-x/lsp_signature.nvim" },
+  {"hagnerd/nvim-cmp-co-authored-by"},
+  {"hagnerd/co-authored-by-luasnip"},
+  {"ray-x/lsp_signature.nvim"},
   "nvim-tree/nvim-tree.lua", -- Possible alternative https://github.com/nvim-neo-tree/neo-tree.nvim
   "LinArcX/telescope-env.nvim",
   {"pwntester/octo.nvim"},
