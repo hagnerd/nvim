@@ -1,1 +1,1 @@
-require("nvim-settings").setup()
+require("nvim-settings")

@@ -8,7 +8,7 @@ require("config.keymaps")
 
 require("lazy").setup({
   "nvim-lua/plenary.nvim",
-  { dir = vim.fn.stdpath("data") .. '/site/pack/nvim-settings/start/nvim-settings', lazy = false },
+  { 'hagnerd/nvim-settings', lazy = false },
   { "neovim/nvim-lspconfig" },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
@@ -88,6 +88,15 @@ require("lazy").setup({
     "folke/todo-comments.nvim",
     init = function()
       require("todo-comments").setup {}
+    end
+  },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    config = function()
+      require('persistence').setup {
+        dir = vim.fn.expand(vim.fn.stdpath('data') .. '/sessions/'),
+      }
     end
   }
   -- Interested in styler.nvim "folke/styler.nvim",
