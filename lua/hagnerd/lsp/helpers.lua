@@ -31,7 +31,6 @@ end
 
 local function on_attach(client, bufnr)
   lsp_status.on_attach(client)
-  require("lsp_signature").on_attach({}, bufnr)
   setup_keybindings(client, bufnr)
 end
 

@@ -94,6 +94,7 @@ require("lazy").setup({
       require("todo-comments").setup {}
     end
   },
+  {"vim-test/vim-test"},
   -- Interested in styler.nvim "folke/styler.nvim",
   -- folke/which-key.nvim
   -- https://github.com/andymass/vim-matchup
