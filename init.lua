@@ -85,7 +85,6 @@ require("lazy").setup({
   {"pwntester/octo.nvim"},
   {"folke/neodev.nvim"},
   {"danymat/neogen"},
-  {"folke/persistence.nvim"},
   {"Wansmer/treesj"},
   {"nvim-treesitter/nvim-treesitter-context"},
   {"b0o/SchemaStore.nvim"},
@@ -95,15 +94,6 @@ require("lazy").setup({
       require("todo-comments").setup {}
     end
   },
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    config = function()
-      require('persistence').setup {
-        dir = vim.fn.expand(vim.fn.stdpath('data') .. '/sessions/'),
-      }
-    end
-  }
   -- Interested in styler.nvim "folke/styler.nvim",
   -- folke/which-key.nvim
   -- https://github.com/andymass/vim-matchup
