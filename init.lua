@@ -33,7 +33,12 @@ require("lazy").setup({
   "tpope/vim-fugitive",
   "tpope/vim-endwise",
   "tpope/vim-surround",
-  "jiangmiao/auto-pairs", -- alternative use 'windwp/nvim-autopairs'
+  {
+    "windwp/nvim-autopairs",
+    config = function ()
+      require("nvim-autopairs").setup({})
+    end
+  },
   "christoomey/vim-tmux-runner",
   "christoomey/vim-tmux-navigator",
   {
