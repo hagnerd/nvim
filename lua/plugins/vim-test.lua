@@ -1,5 +1,8 @@
 return {
   "vim-test/vim-test",
+  config = function()
+    vim.g["test#strategy"] = "harpoon"
+  end,
   keys = {
     { "<leader>tf", "<CMD>TestFile<CR>", desc = "Run all tests in file", silent = true, noremap = true },
     { "<leader>tn", "<CMD>TestNearest<CR>", desc = "Run nearest test", silent = true, noremap = true },
