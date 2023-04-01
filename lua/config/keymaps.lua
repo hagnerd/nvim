@@ -1,6 +1,6 @@
 -- Move between wrapped lines, rather than jumping over wrapped segments
-vim.keymap.set("n", "j", "gj", {silent = true})
-vim.keymap.set("n", "k", "gk", {silent = true})
+vim.keymap.set("n", "j", "gj", { silent = true })
+vim.keymap.set("n", "k", "gk", { silent = true })
 
 -- Convenience thing to not need to hold shift while pressing the ;/: key to output :
 vim.keymap.set("n", "<leader>;", ":")
