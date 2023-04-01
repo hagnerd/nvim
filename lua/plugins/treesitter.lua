@@ -30,6 +30,7 @@ return {
         "jsdoc",
         "scss",
         "css",
+        "kdl",
       })
     end,
   },
