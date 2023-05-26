@@ -8,4 +8,14 @@ return {
       require("oil").setup(opts)
     end,
   },
+  {
+    "kevinhwang91/nvim-bqf",
+    dependencies = { "junegunn/fzf" },
+    config = function(opts)
+      require("bqf").setup(opts)
+    end,
+  },
+  {
+    "junegunn/fzf",
+  },
 }

@@ -1,3 +1,7 @@
+--[[
+In the past I used vim-test and liked it, but neotest has some nice test output and debugging options that aren't available
+in vim-test
+
 local vim_test = {
   "vim-test/vim-test",
   config = function()
@@ -8,6 +12,7 @@ local vim_test = {
     vim.keymap.set("n", "<leader>tv", "<CMD>TestVisit<CR>")
   end,
 }
+]]
 
 return {
   { "nvim-neotest/neotest-jest", config = function(opts) end },
