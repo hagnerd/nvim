@@ -8,4 +8,10 @@ return {
       require("neogen").setup(opts)
     end,
   },
+  {
+    "Wansmer/treesj",
+    keys = {
+      { "<leader>j", "<cmd>lua require('treesj').toggle()<CR>", desc = "Toggle join for using treesj" },
+    },
+  },
 }
