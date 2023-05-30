@@ -39,3 +39,5 @@ vim.opt.number = true
 vim.opt.signcolumn = "yes" -- Always show the sign column
 
 vim.opt.shortmess:append({ c = true })
+
+require("config/keymaps")
