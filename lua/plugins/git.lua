@@ -13,6 +13,9 @@ return {
   },
   {
     "ruifm/gitlinker.nvim",
+    config = function(opts)
+      require("gitlinker").setup(opts)
+    end,
   },
   {
     "f-person/git-blame.nvim",
