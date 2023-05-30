@@ -19,6 +19,21 @@ return {
     "junegunn/fzf",
   },
   {
+    "nvim-pack/nvim-spectre",
+    keys = {
+      { "<leader>S", "<cmd>lua require('spectre').open()<CR>", desc = "Open Spectre" },
+      {
+        "<leader>sw",
+        '<esc><cmd>lua require("spectre").open_visual()<CR>',
+        desc = "Search current word",
+        mode = "v",
+      },
+    },
+    enabled = function()
+      return vim.fn.executable("sed")
+    end,
+  },
+  {
     "cbochs/grapple.nvim",
   },
 }
