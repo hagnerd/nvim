@@ -4,11 +4,11 @@ if os.getenv("NVIM_PREFERRED_TEST_FRAMEWORK") == "vim-test" then
       "vim-test/vim-test",
       keys = {
         { "<leader>tn", "<CMD>TestNearest<CR>", desc = "Runs the nearest test with vim-test" },
-        { "<leader>tf", "<CMD>TestFile<CR>" desc = "Runs all of the tests in the file with vim-test" },
+        { "<leader>tf", "<CMD>TestFile<CR>", desc = "Runs all of the tests in the file with vim-test" },
         {
           "<leader>ts",
           "<CMD>TestSuite<CR>",
-          desc = "Runs the entire suite with vim-test"
+          desc = "Runs the entire suite with vim-test",
         },
         { "<leader>tl", "<CMD>TestLast<CR>", desc = "Runs the last ran test with vim-test" },
         { "<leader>tv", "<CMD>TestVisit<CR>", desc = "Navigates to the last ran test file with vim-test" },
