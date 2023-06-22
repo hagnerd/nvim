@@ -149,6 +149,7 @@ return {
           "sorbet",
           "tsserver",
           "yamlls",
+          "elixirls",
         },
       })
       require("mason-lspconfig").setup_handlers({
