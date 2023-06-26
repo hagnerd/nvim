@@ -117,6 +117,14 @@ return {
       ---@type lspconfig.options
       servers = {
         jsonls = {},
+        elixirls = {
+          enable = true,
+          credo = {},
+          settings = {
+            dialyzerEnabled = false,
+            enableTestLenses = true,
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
@@ -139,6 +147,7 @@ return {
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "lua_ls",
           "cssls",
           "cssmodules_ls",
           "emmet_ls",
@@ -152,10 +161,13 @@ return {
           "elixirls",
         },
       })
+
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       require("mason-lspconfig").setup_handlers({
         function(server_name)
           local server_opts = opts.servers[server_name] or {}
-          require("lspconfig")[server_name].setup(server_opts)
+          require("lspconfig")[server_name].setup(vim.tbl_extend("force", { capabilities = capabilities }, server_opts))
         end,
       })
     end,
