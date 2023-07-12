@@ -26,6 +26,7 @@ return {
       "nvim-neotest/neotest-jest",
       "marilari88/neotest-vitest",
       "olimorris/neotest-rspec",
+      "jfpedroza/neotest-elixir",
     },
     keys = {
       {
@@ -51,6 +52,7 @@ return {
           require("neotest-jest"),
           require("neotest-vitest"),
           require("neotest-rspec"),
+          require("neotest-elixir"),
         },
       })
     end,
