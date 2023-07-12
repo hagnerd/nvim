@@ -158,7 +158,6 @@ return {
           "sorbet",
           "tsserver",
           "yamlls",
-          "elixirls",
         },
       })
 
