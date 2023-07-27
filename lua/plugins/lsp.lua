@@ -171,6 +171,7 @@ return {
       })
     end,
   },
+  { "mhanberg/output-panel.nvim", opt = {} },
   {
     "jay-babu/mason-null-ls.nvim",
     opts = {

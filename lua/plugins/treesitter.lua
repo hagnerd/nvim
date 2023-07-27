@@ -4,6 +4,9 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "RRethy/nvim-treesitter-endwise",
+    },
     build = ":TSUpdate",
     opts = {
       auto_install = true,
@@ -11,6 +14,9 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
       ensure_installed = { "lua", "vim", "vimdoc" },
+      endwise = {
+        enable = true,
+      },
       playground = {
         enable = true,
         disable = {},
@@ -39,7 +45,7 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  -- },
 }

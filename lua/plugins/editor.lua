@@ -1,19 +1,16 @@
 return {
+  { "tpope/vim-repeat" },
   {
     "stevearc/oil.nvim",
     keys = {
       { "-", "<cmd>lua require('oil').open()<CR>", desc = "Open the parent directory of the current file" },
     },
-    config = function(opts)
-      require("oil").setup(opts)
-    end,
+    opts = {},
   },
   {
     "kevinhwang91/nvim-bqf",
     dependencies = { "junegunn/fzf" },
-    config = function(opts)
-      require("bqf").setup(opts)
-    end,
+    opts = {},
   },
   {
     "junegunn/fzf",
@@ -88,6 +85,13 @@ return {
         end,
         desc = "Toggle Flash Search",
       },
+    },
+  },
+  "chaoren/vim-wordmotion",
+  {
+    "chrisgrieser/nvim-various-textobjs",
+    opts = {
+      useDefaultKeymaps = true,
     },
   },
 }

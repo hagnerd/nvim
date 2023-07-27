@@ -1,21 +1,28 @@
 return {
   {
     "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
-    end,
+    opts = {},
   },
   {
     "TimUntersberger/neogit",
+    opts = {},
   },
   {
     "akinsho/git-conflict.nvim",
+    opts = {
+      default_mappings = {
+        ours = "<leader>cc", -- c = current
+        theirs = "<leader>ci", -- i = incoming
+        both = "<leader>cb",
+        none = "<leader>c0",
+        next = "]x",
+        previous = "[x",
+      },
+    },
   },
   {
     "ruifm/gitlinker.nvim",
-    config = function(opts)
-      require("gitlinker").setup(opts)
-    end,
+    opts = {},
   },
   {
     "f-person/git-blame.nvim",
@@ -23,4 +30,5 @@ return {
       vim.g["gitblame_enabled"] = 0
     end,
   },
+  { "tpope/vim-fugitive" },
 }
