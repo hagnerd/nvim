@@ -4,7 +4,6 @@ vim.g.maplocalleader = ","
 vim.opt.autoindent = true
 
 vim.opt.autowrite = true -- Enable auto write
-vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.backspace = "indent,eol,start" -- Backspace deletes like most programs in insert mode
 
