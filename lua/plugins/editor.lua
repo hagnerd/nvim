@@ -87,7 +87,6 @@ return {
       },
     },
   },
-  "chaoren/vim-wordmotion",
   {
     "chrisgrieser/nvim-various-textobjs",
     opts = {
