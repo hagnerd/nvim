@@ -4,8 +4,8 @@ vim.g.maplocalleader = ","
 vim.opt.autoindent = true
 
 vim.opt.autowrite = true -- Enable auto write
-vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.backspace = "indent,eol,start" -- Backspace deletes like most programs in insert mode
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.backspace = { "indent", "eol", "start" } -- Backspace deletes like most programs in insert mode
 
 vim.opt.cursorline = true -- Enable highlighting of the current line
 
