@@ -1,4 +1,4 @@
 require("config")
 require("bootstrap/lazy")
 
-vim.cmd.colorscheme("onenord")
+vim.cmd.colorscheme("tokyonight")
